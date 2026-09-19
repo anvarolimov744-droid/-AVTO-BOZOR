@@ -1,322 +1,516 @@
-```html
 <!DOCTYPE html>
 <html lang="uz">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#0b8f55">
-  <title>AVTO BOZOR</title>
+
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <meta name="description"
+        content="AVTO-BOZOR — O'zbekistonda avtomobil sotish va sotib olish uchun online avtomobil bozori.">
+
+  <meta name="keywords"
+        content="avto bozor, avtomobil, mashina, Cobalt, Gentra, Nexia, Spark, Malibu, Uzbekistan">
+
+  <meta name="robots"
+        content="index, follow">
+
+  <link rel="canonical"
+        href="https://anvarolimov744-droid.github.io/-AVTO-BOZOR/">
+
+  <meta property="og:title"
+        content="AVTO-BOZOR — O'zbekiston avtomobil bozori">
+
+  <meta property="og:description"
+        content="Avtomobil e'lonlarini joylashtiring va boshqa foydalanuvchilarning avtomobillarini ko'ring.">
+
+  <meta property="og:type"
+        content="website">
+
+  <meta property="og:url"
+        content="https://anvarolimov744-droid.github.io/-AVTO-BOZOR/">
+
+  <title>AVTO-BOZOR — O'zbekiston avtomobil bozori</title>
+
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 <header class="header">
+
   <div class="logo">
-    <span class="logo-icon">A</span>
-    <div>
-      <b>AVTO BOZOR</b>
-      <small>Avtomobil e'lonlari</small>
-    </div>
+    🚘 AVTO-BOZOR
   </div>
 
   <div class="header-actions">
-    <button class="icon-btn" id="themeBtn" title="Rejim">🌙</button>
-    <button class="icon-btn" id="favoritesBtn" title="Sevimlilar">
-      ♡ <span id="favCount">0</span>
+
+    <button
+      id="themeBtn"
+      class="icon-btn"
+      title="Tungi rejim">
+      🌙
     </button>
-    <button class="add-btn" id="openAddBtn">＋ E'lon berish</button>
+
+    <button
+      id="openAddBtn"
+      class="add-btn">
+      ＋ E'lon berish
+    </button>
+
   </div>
+
 </header>
+
 
 <main>
 
+  <!-- HERO -->
+
   <section class="hero">
-    <div class="hero-content">
-      <span class="hero-badge">🚘 O'zbekistondagi avtomobillar</span>
-      <h1>O'zingizga mos<br><strong>avtomobilni toping</strong></h1>
-      <p>Mashinalarni qidiring, filterlang va sotuvchi bilan bog'laning.</p>
 
-      <div class="search-box">
-        <span>🔎</span>
-        <input id="searchInput" type="search"
-               placeholder="Cobalt, Gentra, Nexia...">
-        <button id="searchBtn">Qidirish</button>
-      </div>
+    <div class="hero-badge">
+      🚘 O'ZBEKISTON AVTO BOZORI
     </div>
-  </section>
 
-  <section class="filter-area">
+    <h1>
+      O'zingizga mos avtomobilni toping
+    </h1>
 
-    <div class="filter-top">
-      <div>
-        <h2>🚘 Avtomobillar</h2>
-        <span id="resultCount">0 ta e'lon</span>
-      </div>
+    <p>
+      Avtomobil e'lonlarini ko'ring yoki o'zingizning
+      avtomobilingizni butun internetga joylang.
+    </p>
 
-      <button class="filter-mobile" id="filterMobileBtn">
-        ⚙️ Filter
+    <div class="search-box">
+
+      <input
+        id="searchInput"
+        type="search"
+        placeholder="Model, viloyat yoki avtomobil qidiring...">
+
+      <button id="searchBtn">
+        🔍 Qidirish
       </button>
 
-      <select id="sortSelect">
-        <option value="new">Yangi qo'shilgan</option>
-        <option value="cheap">Arzonidan</option>
-        <option value="expensive">Qimmatidan</option>
-        <option value="year">Yili bo'yicha</option>
-      </select>
     </div>
 
-    <div class="filters" id="filters">
-
-      <div class="filter-item">
-        <label>🚘 Model</label>
-        <select id="modelFilter">
-          <option value="">Barcha modellar</option>
-          <option>Cobalt</option>
-          <option>Gentra</option>
-          <option>Nexia</option>
-          <option>Spark</option>
-          <option>Malibu</option>
-          <option>Onix</option>
-          <option>Tracker</option>
-          <option>Damas</option>
-          <option>Lacetti</option>
-          <option>Equinox</option>
-          <option>Captiva</option>
-          <option>Boshqa</option>
-        </select>
-      </div>
-
-      <div class="filter-item">
-        <label>💰 Narx</label>
-        <div class="double-input">
-          <input id="minPrice" type="number" placeholder="Min">
-          <input id="maxPrice" type="number" placeholder="Max">
-        </div>
-      </div>
-
-      <div class="filter-item">
-        <label>📅 Yil</label>
-        <div class="double-input">
-          <input id="minYear" type="number" placeholder="2010">
-          <input id="maxYear" type="number" placeholder="2026">
-        </div>
-      </div>
-
-      <div class="filter-item">
-        <label>🛣️ Probeg</label>
-        <div class="double-input">
-          <input id="minMileage" type="number" placeholder="Min km">
-          <input id="maxMileage" type="number" placeholder="Max km">
-        </div>
-      </div>
-
-      <div class="filter-item">
-        <label>⚙️ Uzatma</label>
-        <select id="gearFilter">
-          <option value="">Barchasi</option>
-          <option>Avtomat</option>
-          <option>Mexanika</option>
-        </select>
-      </div>
-
-      <div class="filter-item">
-        <label>⛽ Yoqilg'i</label>
-        <select id="fuelFilter">
-          <option value="">Barchasi</option>
-          <option>Benzin</option>
-          <option>Metan</option>
-          <option>Propan</option>
-        </select>
-      </div>
-
-      <div class="filter-item">
-        <label>📍 Viloyat</label>
-        <select id="regionFilter">
-          <option value="">Barcha viloyatlar</option>
-          <option>Toshkent shahri</option>
-          <option>Toshkent viloyati</option>
-          <option>Samarqand</option>
-          <option>Qashqadaryo</option>
-          <option>Buxoro</option>
-          <option>Andijon</option>
-          <option>Farg'ona</option>
-          <option>Namangan</option>
-          <option>Surxondaryo</option>
-          <option>Jizzax</option>
-          <option>Sirdaryo</option>
-          <option>Navoiy</option>
-          <option>Xorazm</option>
-          <option>Qoraqalpog'iston</option>
-        </select>
-      </div>
-
-      <button class="clear-btn" id="clearFilters">Tozalash</button>
-
-    </div>
   </section>
 
-  <section class="cars-section">
-    <div id="carsGrid" class="cars-grid"></div>
 
-    <div id="emptyState" class="empty-state">
-      <div class="empty-icon">🚘</div>
-      <h3>Hozircha e'lonlar yo'q</h3>
-      <p>Birinchi avtomobil e'lonini siz joylashtiring.</p>
-      <button id="emptyAddBtn">＋ E'lon berish</button>
+  <!-- TOOLBAR -->
+
+  <section class="toolbar">
+
+    <div>
+
+      <strong id="resultCount">
+        0 ta e'lon
+      </strong>
+
+      <span class="online-status">
+        ● Online
+      </span>
+
     </div>
+
+    <button
+      id="openAddBtn2"
+      class="primary-btn">
+      ＋ E'lon berish
+    </button>
+
+  </section>
+
+
+  <!-- FILTER -->
+
+  <section class="filters">
+
+    <select id="modelFilter">
+
+      <option value="">
+        Barcha modellar
+      </option>
+
+      <option>Cobalt</option>
+      <option>Gentra</option>
+      <option>Nexia</option>
+      <option>Spark</option>
+      <option>Malibu</option>
+      <option>Damas</option>
+      <option>Onix</option>
+      <option>Tracker</option>
+      <option>Equinox</option>
+      <option>Captiva</option>
+      <option>Boshqa</option>
+
+    </select>
+
+
+    <input
+      id="minPrice"
+      type="number"
+      placeholder="Min narx">
+
+    <input
+      id="maxPrice"
+      type="number"
+      placeholder="Max narx">
+
+
+    <select id="regionFilter">
+
+      <option value="">
+        Barcha viloyatlar
+      </option>
+
+      <option>Toshkent</option>
+      <option>Samarqand</option>
+      <option>Qashqadaryo</option>
+      <option>Buxoro</option>
+      <option>Andijon</option>
+      <option>Farg'ona</option>
+      <option>Namangan</option>
+      <option>Surxondaryo</option>
+      <option>Jizzax</option>
+      <option>Navoiy</option>
+      <option>Xorazm</option>
+      <option>Qoraqalpog'iston</option>
+
+    </select>
+
+
+    <select id="sortSelect">
+
+      <option value="new">
+        Yangi e'lonlar
+      </option>
+
+      <option value="cheap">
+        Arzonidan
+      </option>
+
+      <option value="expensive">
+        Qimmatidan
+      </option>
+
+      <option value="year">
+        Yili bo'yicha
+      </option>
+
+    </select>
+
+
+    <button
+      id="clearFilters"
+      class="secondary-btn">
+      Tozalash
+    </button>
+
+  </section>
+
+
+  <!-- CARS -->
+
+  <section>
+
+    <div
+      id="carsGrid"
+      class="cars-grid">
+    </div>
+
+
+    <div
+      id="emptyState"
+      class="empty-state">
+
+      <div class="empty-icon">
+        🚘
+      </div>
+
+      <h2>
+        Hozircha e'lonlar yo'q
+      </h2>
+
+      <p>
+        Birinchi avtomobil e'lonini siz joylang.
+      </p>
+
+      <button
+        id="emptyAddBtn"
+        class="primary-btn">
+        ＋ Birinchi e'lonni berish
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <!-- HOW IT WORKS -->
+
+  <section class="info-section">
+
+    <h2>
+      AVTO-BOZOR qanday ishlaydi?
+    </h2>
+
+    <div class="steps">
+
+      <div class="step">
+        <b>01</b>
+        <h3>E'lon bering</h3>
+        <p>
+          Avtomobil ma'lumotlari va rasmini kiriting.
+        </p>
+      </div>
+
+      <div class="step">
+        <b>02</b>
+        <h3>Serverga saqlanadi</h3>
+        <p>
+          E'lon online serverda saqlanadi.
+        </p>
+      </div>
+
+      <div class="step">
+        <b>03</b>
+        <h3>Boshqalar ko'radi</h3>
+        <p>
+          Boshqa foydalanuvchilar ham e'lonni ko'radi.
+        </p>
+      </div>
+
+      <div class="step">
+        <b>04</b>
+        <h3>Bog'laning</h3>
+        <p>
+          Telefon orqali avtomobil egasi bilan bog'laning.
+        </p>
+      </div>
+
+    </div>
+
   </section>
 
 </main>
 
+
 <!-- ADD MODAL -->
-<div class="modal" id="addModal">
+
+<div
+  id="addModal"
+  class="modal hidden">
+
   <div class="modal-box">
 
-    <div class="modal-header">
-      <div>
-        <h2>🚘 Avtomobil sotish</h2>
-        <p>Avtomobilingiz haqida ma'lumot kiriting</p>
-      </div>
-      <button class="close-btn" id="closeAddBtn">×</button>
-    </div>
+    <button
+      class="modal-close"
+      data-close="addModal">
+      ✕
+    </button>
+
+    <h2>
+      🚘 Yangi avtomobil e'loni
+    </h2>
+
+    <p class="modal-description">
+      Avtomobil ma'lumotlarini kiriting.
+    </p>
+
 
     <form id="carForm">
 
-      <div class="photo-upload">
-        <input id="photoInput" type="file"
-               accept="image/*" multiple hidden>
+      <label>
+        Avtomobil modeli
+      </label>
 
-        <button type="button" id="photoBtn" class="photo-btn">
-          <span>📸</span>
-          <b>Rasm tanlash</b>
-          <small>Bir nechta rasm tanlash mumkin</small>
-        </button>
+      <input
+        id="carModel"
+        required
+        placeholder="Masalan: Cobalt">
 
-        <div id="photoPreview" class="photo-preview"></div>
+
+      <label>
+        Narxi
+      </label>
+
+      <input
+        id="carPrice"
+        type="number"
+        required
+        placeholder="Masalan: 150000000">
+
+
+      <label>
+        Ishlab chiqarilgan yili
+      </label>
+
+      <input
+        id="carYear"
+        type="number"
+        required
+        min="1950"
+        max="2030"
+        placeholder="Masalan: 2022">
+
+
+      <label>
+        Yurgan masofasi
+      </label>
+
+      <input
+        id="carMileage"
+        type="number"
+        placeholder="Masalan: 85000">
+
+
+      <label>
+        Uzatmalar qutisi
+      </label>
+
+      <select id="carGear">
+
+        <option>
+          Mexanika
+        </option>
+
+        <option>
+          Avtomat
+        </option>
+
+        <option>
+          Robot
+        </option>
+
+        <option>
+          Variator
+        </option>
+
+      </select>
+
+
+      <label>
+        Yoqilg'i
+      </label>
+
+      <select id="carFuel">
+
+        <option>
+          Benzin
+        </option>
+
+        <option>
+          Gaz
+        </option>
+
+        <option>
+          Dizel
+        </option>
+
+        <option>
+          Gibrid
+        </option>
+
+        <option>
+          Elektr
+        </option>
+
+      </select>
+
+
+      <label>
+        Viloyat / shahar
+      </label>
+
+      <input
+        id="carRegion"
+        required
+        placeholder="Masalan: Samarqand">
+
+
+      <label>
+        Telefon
+      </label>
+
+      <input
+        id="carPhone"
+        required
+        type="tel"
+        placeholder="+998 90 123 45 67">
+
+
+      <label>
+        Avtomobil rasmi
+      </label>
+
+      <input
+        id="photoInput"
+        type="file"
+        accept="image/*">
+
+
+      <div
+        id="photoPreview"
+        class="photo-preview">
       </div>
 
-      <div class="form-grid">
 
-        <div class="form-group">
-          <label>🚘 Model</label>
-          <select id="carModel" required>
-            <option value="">Modelni tanlang</option>
-            <option>Cobalt</option>
-            <option>Gentra</option>
-            <option>Nexia</option>
-            <option>Spark</option>
-            <option>Malibu</option>
-            <option>Onix</option>
-            <option>Tracker</option>
-            <option>Damas</option>
-            <option>Lacetti</option>
-            <option>Equinox</option>
-            <option>Captiva</option>
-            <option>Boshqa</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label>💰 Narx (so'm)</label>
-          <input id="carPrice" type="number" placeholder="Masalan: 150000000" required>
-        </div>
-
-        <div class="form-group">
-          <label>📅 Ishlab chiqarilgan yil</label>
-          <input id="carYear" type="number" min="1950" max="2026"
-                 placeholder="2020" required>
-        </div>
-
-        <div class="form-group">
-          <label>🛣️ Probeg (km)</label>
-          <input id="carMileage" type="number" placeholder="85000" required>
-        </div>
-
-        <div class="form-group">
-          <label>⚙️ Uzatma</label>
-          <select id="carGear" required>
-            <option value="">Tanlang</option>
-            <option>Avtomat</option>
-            <option>Mexanika</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label>⛽ Yoqilg'i</label>
-          <select id="carFuel" required>
-            <option value="">Tanlang</option>
-            <option>Benzin</option>
-            <option>Metan</option>
-            <option>Propan</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label>📍 Viloyat</label>
-          <select id="carRegion" required>
-            <option value="">Viloyatni tanlang</option>
-            <option>Toshkent shahri</option>
-            <option>Toshkent viloyati</option>
-            <option>Samarqand</option>
-            <option>Qashqadaryo</option>
-            <option>Buxoro</option>
-            <option>Andijon</option>
-            <option>Farg'ona</option>
-            <option>Namangan</option>
-            <option>Surxondaryo</option>
-            <option>Jizzax</option>
-            <option>Sirdaryo</option>
-            <option>Navoiy</option>
-            <option>Xorazm</option>
-            <option>Qoraqalpog'iston</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label>📞 Telefon</label>
-          <input id="carPhone" type="tel"
-                 placeholder="+998 90 123 45 67" required>
-        </div>
-
-      </div>
-
-      <div class="location-box">
-        <div class="location-title">
-          <div>
-            <b>🗺️ Xarita</b>
-            <small>Avtomobil joylashuvini tanlang</small>
-          </div>
-          <button type="button" id="locationBtn">📍 Joylashuvim</button>
-        </div>
-
-        <div id="mapArea" class="map-area">
-          <div class="map-grid"></div>
-          <div class="map-center">📍</div>
-          <p>Xaritadan joy tanlash</p>
-        </div>
-
-        <input id="carLocation" type="hidden">
-      </div>
-
-      <button class="submit-btn" type="submit">
-        E'lonni joylashtirish
+      <button
+        type="submit"
+        class="submit-btn">
+        🚀 E'lonni joylash
       </button>
 
     </form>
+
   </div>
+
 </div>
 
-<!-- CAR DETAIL MODAL -->
-<div class="modal" id="detailModal">
+
+<!-- DETAIL MODAL -->
+
+<div
+  id="detailModal"
+  class="modal hidden">
+
   <div class="modal-box detail-box">
-    <button class="close-btn detail-close" id="closeDetailBtn">×</button>
+
+    <button
+      class="modal-close"
+      data-close="detailModal">
+      ✕
+    </button>
+
     <div id="detailContent"></div>
+
   </div>
+
 </div>
 
-<div class="toast" id="toast"></div>
+
+<div
+  id="toast"
+  class="toast">
+</div>
+
+
+<footer>
+
+  <strong>
+    🚘 AVTO-BOZOR
+  </strong>
+
+  <p>
+    O'zbekistonda avtomobil bozori
+  </p>
+
+</footer>
+
 
 <script src="app.js"></script>
+
 </body>
 </html>
-``` 
